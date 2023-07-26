@@ -8,7 +8,7 @@ use iseeyoucopy\phpmvc\Controller;
  * Class AboutController
  *
  * @author iseeyoucopy
- * @package app\controllers
+ * @package iseeyoucopy\phpmvc\controllers
  */
 class AboutController extends Controller
 {

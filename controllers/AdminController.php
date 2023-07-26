@@ -9,7 +9,7 @@ use iseeyoucopy\phpmvc\Request;
 use iseeyoucopy\phpmvc\Response;
 class AdminController extends Controller
 {
-    public function index(Request $request, Response $response)
+    public function index(Request $request, Response $response): string
     {
         return $this->render('admin/index');
     }

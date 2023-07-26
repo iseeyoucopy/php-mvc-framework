@@ -15,7 +15,7 @@ use iseeyoucopy\phpmvc\Response;
  * Class SiteController
  *
  * @author iseeyoucopy
- * @package app\controllers
+ * @package iseeyoucopy\phpmvc\controllers
  */
 class SiteController extends Controller
 {

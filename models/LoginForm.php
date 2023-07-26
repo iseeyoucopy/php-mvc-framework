@@ -10,7 +10,7 @@ use iseeyoucopy\phpmvc\Model;
  * Class LoginForm
  *
  * @author iseeyoucopy
- * @package app\models
+ * @package iseeyoucopy\phpmvc\models
  */
 class LoginForm extends Model
 {

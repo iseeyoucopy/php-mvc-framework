@@ -2,15 +2,13 @@
 
 namespace iseeyoucopy\phpmvc\models;
 
-
-use iseeyoucopy\phpmvc\DbModel;
 use iseeyoucopy\phpmvc\UserModel;
 
 /**
  * Class User
  *
  * @author iseeyoucopy
- * @package app\models
+ * @package iseeyoucopy\phpmvc\models
  */
 class User extends UserModel
 {
