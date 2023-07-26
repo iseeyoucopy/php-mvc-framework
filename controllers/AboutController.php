@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers;
+namespace iseeyoucopy\phpmvc\controllers;
 
 use iseeyoucopy\phpmvc\Controller;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace app\controllers;
+namespace iseeyoucopy\phpmvc\controllers;
 
 
-use app\models\LoginForm;
-use app\models\User;
+use iseeyoucopy\phpmvc\models\LoginForm;
+use iseeyoucopy\phpmvc\models\User;
 use iseeyoucopy\phpmvc\Application;
 use iseeyoucopy\phpmvc\Controller;
 use iseeyoucopy\phpmvc\middlewares\AuthMiddleware;

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\controllers;
+namespace iseeyoucopy\phpmvc\controllers;
 
-use app\models\Product;
+use iseeyoucopy\phpmvc\models\Product;
 
 use iseeyoucopy\phpmvc\Application;
 use iseeyoucopy\phpmvc\Controller;

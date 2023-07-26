@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace iseeyoucopy\phpmvc\models;
 
 
 use iseeyoucopy\phpmvc\Application;
