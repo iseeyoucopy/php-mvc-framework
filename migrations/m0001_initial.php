@@ -2,7 +2,7 @@
 
 class m0001_initial
 {
-    public function up()
+    public function up(): void
     {
         $db = \iseeyoucopy\phpmvc\Application::$app->db;
         $SQL = "CREATE TABLE users (
@@ -26,7 +26,7 @@ class m0001_initial
         $db->pdo->exec($SQL);
     }
 
-    public function down()
+    public function down(): void
     {
         $db = \iseeyoucopy\phpmvc\Application::$app->db;
         $SQL = "DROP TABLE users;";

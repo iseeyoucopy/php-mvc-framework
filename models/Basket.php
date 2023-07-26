@@ -4,9 +4,9 @@ namespace iseeyoucopy\phpmvc\models;
 
 class Basket
 {
-    private $items = [];
+    private array $items = [];
 
-    public function addProduct($productID, $quantity)
+    public function addProduct($productID, $quantity): void
     {
         if (!array_key_exists($productID, $this->items)) {
             $this->items[$productID] = $quantity;
@@ -15,7 +15,7 @@ class Basket
         }
     }
 
-    public function getItems()
+    public function getItems(): array
     {
         return $this->items;
     }

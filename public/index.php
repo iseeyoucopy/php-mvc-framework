@@ -1,5 +1,6 @@
 <?php
 
+use Dotenv\Dotenv;
 use iseeyoucopy\phpmvc\controllers\AboutController;
 use iseeyoucopy\phpmvc\controllers\ProductController;
 use iseeyoucopy\phpmvc\controllers\SiteController;
@@ -7,7 +8,7 @@ use iseeyoucopy\phpmvc\models\User;
 use iseeyoucopy\phpmvc\Application;
 
 require_once __DIR__ . '/../vendor/autoload.php';
-$dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv = Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 $config = [
     'userClass' => User::class,

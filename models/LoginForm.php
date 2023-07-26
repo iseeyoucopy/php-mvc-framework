@@ -17,7 +17,7 @@ class LoginForm extends Model
     public string $email = '';
     public string $password = '';
 
-    public function rules()
+    public function rules(): array
     {
         return [
             'email' => [self::RULE_REQUIRED],
@@ -25,7 +25,7 @@ class LoginForm extends Model
         ];
     }
 
-    public function labels()
+    public function labels(): array
     {
         return [
             'email' => 'Your Email address',

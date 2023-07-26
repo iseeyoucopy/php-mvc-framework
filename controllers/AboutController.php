@@ -1,4 +1,6 @@
-<?php
+<?php /** @noinspection PhpUndefinedClassInspection */
+
+/** @noinspection PhpUndefinedClassInspection */
 
 namespace iseeyoucopy\phpmvc\controllers;
 
