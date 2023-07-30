@@ -1,8 +1,8 @@
 <?php
 
 use Dotenv\Dotenv;
-use iseeyoucopy\phpmvc\models\User;
 use iseeyoucopy\phpmvc\Application;
+use iseeyoucopy\phpmvc\models\User;
 
 require_once __DIR__ . '/vendor/autoload.php';
 $dotenv = Dotenv::createImmutable(__DIR__);

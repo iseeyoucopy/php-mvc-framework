@@ -2,14 +2,12 @@
 
 namespace iseeyoucopy\phpmvc\models;
 
-
 use iseeyoucopy\phpmvc\Application;
 use iseeyoucopy\phpmvc\Model;
 
 /**
  * Class LoginForm
  *
- * @author iseeyoucopy
  * @package iseeyoucopy\phpmvc\models
  */
 class LoginForm extends Model
@@ -44,6 +42,16 @@ class LoginForm extends Model
             $this->addError('password', 'Password is incorrect');
             return false;
         }
+
+        // Set user's IP address and HTTP agent
+        //$user->ip_address = User::getUserIP();
+        //$user->user_agent = User::getUserAgent();
+
+        // Set last access date
+        //$user->last_login = date('Y-m-d H:i:s');
+
+        // Save user data to the database
+        $user->update();
 
         return Application::$app->login($user);
     }

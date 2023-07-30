@@ -2,8 +2,8 @@
 
 /** @var $model LoginForm */
 
-use iseeyoucopy\phpmvc\models\LoginForm;
 use iseeyoucopy\phpmvc\form\Form;
+use iseeyoucopy\phpmvc\models\LoginForm;
 
 ?>
 

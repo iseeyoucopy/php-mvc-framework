@@ -23,7 +23,8 @@
                 <a href="/product_edit/<?= $product['id'] ?>"><i class="fa fa-pencil"></i></a>
                 <form action="/product_delete" method="POST" style="display:inline;">
                     <input type="hidden" name="id" value="<?= $product['id'] ?>">
-                    <button type="submit" style="background:none;border:none;padding:0;"><i class="fa fa-trash"></i></button>
+                    <button type="submit" style="background:none;border:none;padding:0;"><i class="fa fa-trash"></i>
+                    </button>
                 </form>
             </td>
         </tr>

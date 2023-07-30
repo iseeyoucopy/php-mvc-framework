@@ -16,7 +16,7 @@
 <div class="grid-x grid-margin-x">
     <div class="cell small-4"></div>
     <div class="cell small-4">
-    {{content}}
+        {{content}}
     </div>
     <div class="cell small-4"></div>
 </div>

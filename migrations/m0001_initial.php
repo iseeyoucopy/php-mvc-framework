@@ -1,10 +1,12 @@
 <?php
 
+use iseeyoucopy\phpmvc\Application;
+
 class m0001_initial
 {
     public function up(): void
     {
-        $db = \iseeyoucopy\phpmvc\Application::$app->db;
+        $db = Application::$app->db;
         $SQL = "CREATE TABLE users (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 email VARCHAR(255) NOT NULL,
@@ -28,7 +30,7 @@ class m0001_initial
 
     public function down(): void
     {
-        $db = \iseeyoucopy\phpmvc\Application::$app->db;
+        $db = Application::$app->db;
         $SQL = "DROP TABLE users;";
         $db->pdo->exec($SQL);
     }

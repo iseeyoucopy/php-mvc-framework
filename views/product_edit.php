@@ -2,6 +2,7 @@
 /** @var $model Product */
 
 use iseeyoucopy\phpmvc\form\Form;
+use iseeyoucopy\phpmvc\models\Product;
 
 $form = new Form();
 ?>

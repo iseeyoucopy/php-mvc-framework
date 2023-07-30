@@ -1,18 +1,18 @@
 {
-    "name": "iseeyoucopy/php-mvc-framework",
-    "authors": [
-        {
-            "name": "iseeyoucopy",
-            "email": "iseeyoucopy@yahoo.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "iseeyoucopy\\phpmvc\\": "."
-        }
-    },
-    "require": {
-        "vlucas/phpdotenv": "^5.0",
-        "iseeyoucopy/php-mvc-core": "^1.0.3"
+  "name": "iseeyoucopy/php-mvc-framework",
+  "authors": [
+    {
+      "name": "iseeyoucopy",
+      "email": "iseeyoucopy@yahoo.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "iseeyoucopy\\phpmvc\\": "."
+    }
+  },
+  "require": {
+    "vlucas/phpdotenv": "^5.0",
+    "iseeyoucopy/php-mvc-core": "^1.0.3"
+  }
 }

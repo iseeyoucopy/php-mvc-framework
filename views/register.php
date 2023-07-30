@@ -1,7 +1,8 @@
 <?php
-/** @var $model \iseeyoucopy\phpmvc\Model */
+/** @var $model Model */
 
 use iseeyoucopy\phpmvc\form\Form;
+use iseeyoucopy\phpmvc\Model;
 
 $form = new Form();
 ?>

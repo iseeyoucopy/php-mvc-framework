@@ -3,11 +3,13 @@
 namespace iseeyoucopy\phpmvc\controllers;
 
 
-use iseeyoucopy\phpmvc\models\LoginForm;
-use iseeyoucopy\phpmvc\models\User;
 use iseeyoucopy\phpmvc\Application;
 use iseeyoucopy\phpmvc\Controller;
 use iseeyoucopy\phpmvc\middlewares\AuthMiddleware;
+use iseeyoucopy\phpmvc\models\Cart;
+use iseeyoucopy\phpmvc\models\LoginForm;
+use iseeyoucopy\phpmvc\models\Product;
+use iseeyoucopy\phpmvc\models\User;
 use iseeyoucopy\phpmvc\Request;
 use iseeyoucopy\phpmvc\Response;
 
@@ -15,7 +17,7 @@ use iseeyoucopy\phpmvc\Response;
  * Class SiteController
  *
  * @author iseeyoucopy
- * @package iseeyoucopy\phpmvc\controllers
+ * @package app\controllers
  */
 class SiteController extends Controller
 {
@@ -75,6 +77,7 @@ class SiteController extends Controller
     {
         return $this->render('contact');
     }
+
     public function product()
     {
         return $this->render('product');
@@ -84,8 +87,8 @@ class SiteController extends Controller
     {
         return $this->render('profile');
     }
-
-    public function profileWithId(Request $request)
+    public function info()
     {
+        return $this->render('info');
     }
 }

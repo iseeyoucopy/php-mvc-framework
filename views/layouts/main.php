@@ -11,7 +11,7 @@
     <link href="/css/fontawesome.css" rel="stylesheet">
     <link href="/css/brands.css" rel="stylesheet">
     <link href="/css/solid.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css"/>
 
 </head>
 <body>
@@ -32,12 +32,13 @@
                     <li><a href="/register">Register</a></li>
                 <?php else: ?>
                     <li><a href="/profile">Profile</a></li>
-                    <li><a href="/logout">Welcome <?php echo Application::$app->user->getDisplayName() ?> (Logout)</a></li>
+                    <li><a href="/logout">Welcome <?php echo Application::$app->user->getDisplayName() ?> (Logout)</a>
+                    </li>
                 <?php endif; ?>
             </ul>
         </nav>
         <svg onclick="menuShow()" id="burger" fill=" #fff" viewBox="0 0 448 512" title="bars">
-            <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+            <path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/>
         </svg>
     </div>
 </header>
@@ -61,20 +62,19 @@
 </footer>
 
 
-
 <!-- Foundation JS -->
 <script type="text/javascript" src="/js/vendor/jquery.js"></script>
 <script type="text/javascript" src="/js/vendor/what-input.js"></script>
 <script type="text/javascript" src="/js/vendor/foundation.js"></script>
 <script type="text/javascript" src="/js/navbar.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('ul.tabs li').click(function(){
+    $(document).ready(function () {
+        $('ul.tabs li').click(function () {
             var tab_id = $(this).attr('data-tab');
             $('ul.tabs li').removeClass('current');
             $('.tab-content').removeClass('current');
             $(this).addClass('current');
-            $("#"+tab_id).addClass('current');
+            $("#" + tab_id).addClass('current');
         });
     });
 </script>

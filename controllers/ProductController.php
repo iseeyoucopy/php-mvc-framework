@@ -2,15 +2,20 @@
 
 namespace iseeyoucopy\phpmvc\controllers;
 
-use iseeyoucopy\phpmvc\models\Product;
-
 use iseeyoucopy\phpmvc\Application;
 use iseeyoucopy\phpmvc\Controller;
+use iseeyoucopy\phpmvc\middlewares\AuthMiddleware;
+use iseeyoucopy\phpmvc\models\Cart;
+use iseeyoucopy\phpmvc\models\Product;
 use iseeyoucopy\phpmvc\Request;
 use iseeyoucopy\phpmvc\Response;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->registerMiddleware(new AuthMiddleware(['products']));
+    }
     /*
     public function productView()
     {
@@ -31,21 +36,22 @@ class ProductController extends Controller
         ]);
     }
 
-        public function productAdd(Request $request)
-        {
-            $productModel = new Product();
-            if ($request->getMethod() === 'post') {
-                $productModel->loadData($request->getBody());
-                if ($productModel->validate() && $productModel->save()) {
-                    Application::$app->session->setFlash('success', 'Product added succesfully');
-                    Application::$app->response->redirect('/');
-                    return 'Show success page';
-                }
+    public function productAdd(Request $request): string
+    {
+        $productModel = new Product();
+        if ($request->getMethod() === 'post') {
+            $productModel->loadData($request->getBody());
+            if ($productModel->validate() && $productModel->save()) {
+                Application::$app->session->setFlash('success', 'Product added successfully');
+                Application::$app->response->redirect('/products');
+                return 'Show success page';
             }
-            return $this->render('product_add', [
-                'model' => $productModel
-            ]);
         }
+        return $this->render('product_add', [
+            'model' => $productModel
+        ]);
+    }
+
     public function productEdit(Request $request, Response $response): string
     {
         $id = $request->getRouteParams()['id'];
@@ -67,28 +73,60 @@ class ProductController extends Controller
             'model' => $productModel,
         ]);
     }
-    public function addToBasket(Request $request)
+
+    public function viewCart()
     {
-        // Start the session (or make sure it has been started)
-        if(session_status() !== PHP_SESSION_ACTIVE) {
-            session_start();
-        }
-
-        // Get product ID and quantity from the request
-        $productID = $request->get('product_id');
-        $quantity = $request->get('quantity');
-
-        // Get the basket from the session (or create a new one if it doesn't exist)
-        if (!isset($_SESSION['basket'])) {
-            $_SESSION['basket'] = new Basket();
-        }
-
-        // Add the product to the basket
-        $_SESSION['basket']->addProduct($productID, $quantity);
-
-        // Redirect to a confirmation page or back to the product list
-        Application::$app->response->redirect('/basket');
+        $productsInCart = new Cart();
+        $results = $productsInCart->findAll();
+        return $this->render('view_cart', [
+            'products' => $productsInCart
+        ]);
     }
+
+    public function removeFromCart(Request $request)
+    {
+        $product_id = $request->getRouteParams('product_id');
+
+        // Remove the product from the user's cart
+        Application::$app->user->removeFromCart($product_id);
+
+        // Redirect back to the cart page
+        Application::$app->response->redirect('/cart');
+    }
+
+    public function addToCart(Request $request, Response $response)
+    {
+        // Get the product ID from the request
+        $product_id = $request->getRouteParam('id');
+        var_dump($product_id);
+        // Check if the product exists (you'll need to fetch the product from the database)
+        $product = Product::findOne(['id' => $product_id]);
+        if ($request->getMethod() === 'post') {
+            // Load the submitted data into the model
+            $product->loadData($request->getBody());
+
+            // If the data is valid, update the product and redirect
+            if ($product->validate() && $product->update()) {
+                Application::$app->session->setFlash('success', 'Product added to cart');
+                Application::$app->response->redirect('/product?id=' . $product_id);
+            }
+        }
+        // Render the product edit form
+        return $this->render('product_edit', [
+            'model' => $product,
+        ]);
+    }
+
+    public function cart(): string
+    {
+        // ... Your existing cart action code ...
+
+        // Render the cart view
+        return $this->render('cart', [
+            'products' => $products,
+        ]);
+    }
+
     public function productDelete(Request $request)
     {
         $id = $request->getRouteParams()['id'];

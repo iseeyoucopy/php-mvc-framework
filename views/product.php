@@ -52,8 +52,12 @@
     <div class="">
         <hr>
         <ul class="tabs" data-tabs="" id="example-tabs" role="tablist" data-e="7yqvd7-e">
-            <li class="tabs-title is-active" role="presentation"><a href="#panel1" aria-selected="true" role="tab" aria-controls="panel1" id="panel1-label" tabindex="0">Reviews</a></li>
-            <li class="tabs-title" role="presentation"><a href="#panel2" role="tab" aria-controls="panel2" aria-selected="false" id="panel2-label" tabindex="-1">Similar Products</a></li>
+            <li class="tabs-title is-active" role="presentation"><a href="#panel1" aria-selected="true" role="tab"
+                                                                    aria-controls="panel1" id="panel1-label"
+                                                                    tabindex="0">Reviews</a></li>
+            <li class="tabs-title" role="presentation"><a href="#panel2" role="tab" aria-controls="panel2"
+                                                          aria-selected="false" id="panel2-label" tabindex="-1">Similar
+                    Products</a></li>
         </ul>
         <div class="tabs-content" data-tabs-content="example-tabs">
             <div class="tabs-panel is-active" id="panel1" role="tabpanel" aria-labelledby="panel1-label">
@@ -64,7 +68,9 @@
                     </div>
                     <div class="media-object-section">
                         <h5>Mike Stevenson</h5>
-                        <p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
+                        <p>I'm going to improvise. Listen, there's something you should know about me... about
+                            inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an
+                            idea can grow. It can grow to define or destroy you.</p>
                     </div>
                 </div>
                 <div class="media-object stack-for-small">
@@ -73,7 +79,9 @@
                     </div>
                     <div class="media-object-section">
                         <h5>Mike Stevenson</h5>
-                        <p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you</p>
+                        <p>I'm going to improvise. Listen, there's something you should know about me... about
+                            inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an
+                            idea can grow. It can grow to define or destroy you</p>
                     </div>
                 </div>
                 <div class="media-object stack-for-small">
@@ -82,7 +90,9 @@
                     </div>
                     <div class="media-object-section">
                         <h5>Mike Stevenson</h5>
-                        <p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you</p>
+                        <p>I'm going to improvise. Listen, there's something you should know about me... about
+                            inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an
+                            idea can grow. It can grow to define or destroy you</p>
                     </div>
                 </div>
                 <label>
@@ -96,31 +106,36 @@
                     <div class="cell">
                         <img class="thumbnail" src="https://placehold.it/350x200">
                         <h5>Other Product <small>$22</small></h5>
-                        <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
+                        <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
+                            euismod semper, magna diam.</p>
                         <a href="#" class="button hollow tiny expanded">Buy Now</a>
                     </div>
                     <div class="cell">
                         <img class="thumbnail" src="https://placehold.it/350x200">
                         <h5>Other Product <small>$22</small></h5>
-                        <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
+                        <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
+                            euismod semper, magna diam.</p>
                         <a href="#" class="button hollow tiny expanded">Buy Now</a>
                     </div>
                     <div class="cell">
                         <img class="thumbnail" src="https://placehold.it/350x200">
                         <h5>Other Product <small>$22</small></h5>
-                        <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
+                        <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
+                            euismod semper, magna diam.</p>
                         <a href="#" class="button hollow tiny expanded">Buy Now</a>
                     </div>
                     <div class="cell">
                         <img class="thumbnail" src="https://placehold.it/350x200">
                         <h5>Other Product <small>$22</small></h5>
-                        <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
+                        <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
+                            euismod semper, magna diam.</p>
                         <a href="#" class="button hollow tiny expanded">Buy Now</a>
                     </div>
                     <div class="cell">
                         <img class="thumbnail" src="https://placehold.it/350x200">
                         <h5>Other Product <small>$22</small></h5>
-                        <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>
+                        <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac
+                            euismod semper, magna diam.</p>
                         <a href="#" class="button hollow tiny expanded">Buy Now</a>
                     </div>
                 </div>

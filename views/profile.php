@@ -1,7 +1,8 @@
 <?php
-/** @var $this \iseeyoucopy\phpmvc\View */
+/** @var $this View */
 
 use iseeyoucopy\phpmvc\Application;
+use iseeyoucopy\phpmvc\View;
 
 $this->title = 'User Profile';
 ?>
@@ -14,11 +15,13 @@ $this->title = 'User Profile';
 
     <div class="grid-x">
         <div class="cell large-3">
-            <img class="profile-image" src="//foundation.zurb.com/sites/docs/assets/img/thumbnail/01.jpg" alt="Profile Image.">
+            <img class="profile-image" src="//foundation.zurb.com/sites/docs/assets/img/thumbnail/01.jpg"
+                 alt="Profile Image.">
         </div>
         <div class="cell large-9">
             <h3><?php echo Application::$app->user->getDisplayName() ?></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac ipsum magna. Nullam fringilla lorem quis metus suscipit, sed posuere elit ultrices.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac ipsum magna. Nullam fringilla lorem quis
+                metus suscipit, sed posuere elit ultrices.</p>
             <p>Email: <?php echo Application::$app->user->getDisplayEmail() ?></p>
             <p>Location: New York, USA</p>
             <ul class="tabs" data-active-collapse="true" data-tabs id="collapsing-tabs">
@@ -28,10 +31,13 @@ $this->title = 'User Profile';
 
             <div class="tabs-content" data-tabs-content="collapsing-tabs">
                 <div class="tabs-panel is-active" id="panel1c">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
                 </div>
                 <div class="tabs-panel" id="panel2c">
-                    <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
+                    <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend
+                        nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl
+                        tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
                 </div>
             </div>
         </div>
