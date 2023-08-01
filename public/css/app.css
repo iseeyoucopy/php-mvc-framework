@@ -368,3 +368,15 @@ footer p a::after {
     border-radius: 50%;
     margin-right: 2px;
 }
+/* Apply the ellipsis style to the description column */
+.ellipsis-description {
+    /* Set a fixed width for the column to limit the space available for the description */
+    width: 200px;
+    /* Add ellipsis for text overflow */
+    text-overflow: ellipsis;
+    /* Prevent line breaks */
+    white-space: nowrap;
+    /* Hide any overflowing content */
+    overflow: hidden;
+    word-wrap: break-word;
+}

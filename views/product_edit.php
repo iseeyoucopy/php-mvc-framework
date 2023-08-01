@@ -18,5 +18,6 @@ $form = new Form();
     </div>
 <?php echo $form->field($model, 'price') ?>
 <?php echo $form->field($model, 'category') ?>
+<?php echo $form->field($model, 'image') ?>
     <button class="button success">Submit</button>
 <?php Form::end() ?>

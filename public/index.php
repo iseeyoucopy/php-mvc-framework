@@ -40,10 +40,14 @@ $app->router->get('/logout', [SiteController::class, 'logout']);
 $app->router->get('/contact', [SiteController::class, 'contact']);
 $app->router->get('/about', [AboutController::class, 'index']);
 $app->router->get('/profile', [SiteController::class, 'profile']);
+
 $app->router->get('/products', [ProductController::class, 'productView']);
-$app->router->get('/product', [SiteController::class, 'product']);
+
+$app->router->get('/product/{id:\d+}/', [ProductController::class, 'productDetails']);
+
 $app->router->get('/product_add', [ProductController::class, 'productAdd']);
 $app->router->post('/product_add', [ProductController::class, 'productAdd']);
+
 $app->router->get('/addToCart', [ProductController::class, 'addToCart']);
 $app->router->get('/info', [SiteController::class, 'info']);
 

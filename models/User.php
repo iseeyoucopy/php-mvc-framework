@@ -18,14 +18,13 @@ class User extends UserModel
     public string $email = '';
     public string $password = '';
     public string $passwordConfirm = '';
-    public ?string $ip_address = null; // Make the property nullable
-
-    public ?string $user_agent = null; // Assuming user_agent cannot be null
-    public string $date_created = ''; // New column for date created
-
-    public string $status = ''; // New column for status
-    public string $last_login = ''; // New column for last login
-    public string $last_access = ''; // New column for last access
+    public ?string $ip_address = null;
+    public ?string $user_agent = null;
+    public string $date_created = '';
+    public string $status = '';
+    public string $last_login = '';
+    public string $last_access = '';
+    public ?string $username = 'Unknown';
 
     public array $cart = [];
     public static function tableName(): string
@@ -35,7 +34,7 @@ class User extends UserModel
 
     public function attributes(): array
     {
-        return ['firstname', 'lastname', 'email', 'password','last_access','status', 'ip_address', 'user_agent', 'last_login'];
+        return ['firstname', 'lastname', 'email', 'password', 'username', 'last_access','status', 'ip_address', 'user_agent', 'last_login'];
     }
 
     public function labels(): array

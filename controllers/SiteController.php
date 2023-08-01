@@ -78,11 +78,6 @@ class SiteController extends Controller
         return $this->render('contact');
     }
 
-    public function product()
-    {
-        return $this->render('product');
-    }
-
     public function profile()
     {
         return $this->render('profile');

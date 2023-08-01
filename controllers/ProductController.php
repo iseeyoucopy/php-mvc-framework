@@ -23,7 +23,7 @@ class ProductController extends Controller
         // render view and pass $results
     }
     */
-    public function productView()
+    public function productView(): string
     {
         $product = new Product();
         $results = $product->findAll();
@@ -36,7 +36,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function productAdd(Request $request): string
+    public function productAdd(Request $request)
     {
         $productModel = new Product();
         if ($request->getMethod() === 'post') {
@@ -54,7 +54,7 @@ class ProductController extends Controller
 
     public function productEdit(Request $request, Response $response): string
     {
-        $id = $request->getRouteParams()['id'];
+        $id = $request->getRouteParams('')['id'];
         $productModel = Product::findById($id); // fetch the product details from the database
 
         // Check if form was submitted
@@ -74,6 +74,18 @@ class ProductController extends Controller
         ]);
     }
 
+    public function productDetails(Request $request): string
+    {
+        $id = $request->getRouteParams('id')['id'];
+        $productDetails = Product::findById($id); // fetch the product details from the database
+        $productDetails->loadData($request->getBody());
+        // Now, $results contains all the product records from the database
+        // You pass it to the view
+
+        return $this->render('product', [
+            'product' => $productDetails
+        ]);
+    }
     public function viewCart()
     {
         $productsInCart = new Cart();
@@ -114,16 +126,6 @@ class ProductController extends Controller
         // Render the product edit form
         return $this->render('product_edit', [
             'model' => $product,
-        ]);
-    }
-
-    public function cart(): string
-    {
-        // ... Your existing cart action code ...
-
-        // Render the cart view
-        return $this->render('cart', [
-            'products' => $products,
         ]);
     }
 
