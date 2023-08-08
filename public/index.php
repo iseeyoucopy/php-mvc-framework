@@ -7,9 +7,12 @@ use Dotenv\Dotenv;
 use iseeyoucopy\phpmvc\Application;
 use iseeyoucopy\phpmvc\controllers\AboutController;
 use iseeyoucopy\phpmvc\controllers\AdminController;
+use iseeyoucopy\phpmvc\controllers\AdminProductController;
 use iseeyoucopy\phpmvc\controllers\CartController;
+use iseeyoucopy\phpmvc\controllers\FaqController;
 use iseeyoucopy\phpmvc\controllers\ProductController;
 use iseeyoucopy\phpmvc\controllers\SiteController;
+use iseeyoucopy\phpmvc\middlewares\AuthMiddleware;
 use iseeyoucopy\phpmvc\models\User;
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -41,18 +44,16 @@ $app->router->get('/contact', [SiteController::class, 'contact']);
 $app->router->get('/about', [AboutController::class, 'index']);
 $app->router->get('/profile', [SiteController::class, 'profile']);
 
-$app->router->get('/products', [ProductController::class, 'productView']);
+$app->router->get('/shop', [ProductController::class, 'productView']);
 
-$app->router->get('/product/{id:\d+}/', [ProductController::class, 'productDetails']);
+//$app->router->get('/product/{id:\d+}/', [ProductController::class, 'productDetails']);
 
-$app->router->get('/product_add', [ProductController::class, 'productAdd']);
-$app->router->post('/product_add', [ProductController::class, 'productAdd']);
+$app->router->get('/product_details/{id:\d+}/', array(ProductController::class, 'productDetails'));
 
 $app->router->get('/addToCart', [ProductController::class, 'addToCart']);
 $app->router->get('/info', [SiteController::class, 'info']);
 
-$app->router->get('/product_edit/{id:\d+}/', [ProductController::class, 'productEdit']);
-$app->router->post('/product_edit/{id:\d+}/', [ProductController::class, 'productEdit']);
+$app->router->get('/faq', [FaqController::class, 'index']);
 
 $app->router->get('/profile/{id:\d+}/{username}', [SiteController::class, 'login']);
 
@@ -60,10 +61,15 @@ $app->router->get('/cart', [ProductController::class, 'viewCart']);
 $app->router->post('/removeFromCart', [ProductController::class, 'removeFromCart']);
 
 // Assuming you are using a router class to handle routes, define the route for the admin page:
-$app->router->get('/admin', [AdminController::class, 'actionIndex']);
-// /profile/{id}
-// /profile/13
-// \/profile\/\w+
+$app->router->get('/admin/index', [AdminController::class, 'actionIndex']);
 
-// /{id}
+$app->router->get('/admin/products', [AdminController::class, 'actionProducts']);
+$app->router->get('/admin/product_add', [AdminController::class, 'productAdd']);
+$app->router->post('/admin/product_add', [AdminController::class, 'productAdd']);
+$app->router->get('/admin/product_edit/{id:\d+}/', [AdminController::class, 'productEdit']);
+$app->router->post('/admin/product_edit/{id:\d+}/', [AdminController::class, 'productEdit']);
+
+$app->router->get('/admin/faq_edit/{id:\d+}/', [AdminController::class, 'faqEdit']);
+$app->router->post('/admin/faq_edit/{id:\d+}/', [AdminController::class, 'faqEdit']);
+
 $app->run();

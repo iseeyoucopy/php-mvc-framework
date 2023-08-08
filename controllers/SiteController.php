@@ -28,8 +28,12 @@ class SiteController extends Controller
 
     public function home()
     {
+        // Load the view and pass the data to it
+        $latestProducts = Product::findLatest(3);
+
         return $this->render('home', [
-            'name' => 'IseeYoucopy MVC Framework'
+            'name' => 'IseeYoucopy MVC Framework',
+            'latestProducts' => $latestProducts
         ]);
     }
 
@@ -54,6 +58,8 @@ class SiteController extends Controller
         $registerModel = new User();
         if ($request->getMethod() === 'post') {
             $registerModel->loadData($request->getBody());
+            // Assign roles to the user
+            $registerModel->roles = ['user'];
             if ($registerModel->validate() && $registerModel->save()) {
                 Application::$app->session->setFlash('success', 'Thanks for registering');
                 Application::$app->response->redirect('/');
@@ -85,5 +91,17 @@ class SiteController extends Controller
     public function info()
     {
         return $this->render('info');
+    }
+
+    public function faq()
+    {
+        $faq = new Faq();
+        $results = $faq->findAll();
+
+        // Now, $results contains all the product records from the database
+        // You pass it to the view
+        return $this->render('faq', [
+            'products' => $results
+        ]);
     }
 }

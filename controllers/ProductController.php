@@ -30,47 +30,8 @@ class ProductController extends Controller
 
         // Now, $results contains all the product records from the database
         // You pass it to the view
-
-        return $this->render('products', [
+        return $this->render('shop', [
             'products' => $results
-        ]);
-    }
-
-    public function productAdd(Request $request)
-    {
-        $productModel = new Product();
-        if ($request->getMethod() === 'post') {
-            $productModel->loadData($request->getBody());
-            if ($productModel->validate() && $productModel->save()) {
-                Application::$app->session->setFlash('success', 'Product added successfully');
-                Application::$app->response->redirect('/products');
-                return 'Show success page';
-            }
-        }
-        return $this->render('product_add', [
-            'model' => $productModel
-        ]);
-    }
-
-    public function productEdit(Request $request, Response $response): string
-    {
-        $id = $request->getRouteParams('')['id'];
-        $productModel = Product::findById($id); // fetch the product details from the database
-
-        // Check if form was submitted
-        if ($request->getMethod() === 'post') {
-            // Load the submitted data into the model
-            $productModel->loadData($request->getBody());
-
-            // If the data is valid, update the product and redirect
-            if ($productModel->validate() && $productModel->update()) {
-                Application::$app->session->setFlash('success', 'Product updated successfully');
-                Application::$app->response->redirect('/products');
-            }
-        }
-        // Render the product edit form
-        return $this->render('product_edit', [
-            'model' => $productModel,
         ]);
     }
 
@@ -82,10 +43,11 @@ class ProductController extends Controller
         // Now, $results contains all the product records from the database
         // You pass it to the view
 
-        return $this->render('product', [
+        return $this->render('product_details', [
             'product' => $productDetails
         ]);
     }
+
     public function viewCart()
     {
         $productsInCart = new Cart();

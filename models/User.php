@@ -24,6 +24,7 @@ class User extends UserModel
     public string $status = '';
     public string $last_login = '';
     public string $last_access = '';
+    public array $roles = []; // Holds the roles associated with the user
     public ?string $username = 'Unknown';
 
     public array $cart = [];
@@ -34,7 +35,7 @@ class User extends UserModel
 
     public function attributes(): array
     {
-        return ['firstname', 'lastname', 'email', 'password', 'username', 'last_access','status', 'ip_address', 'user_agent', 'last_login'];
+        return ['firstname', 'lastname', 'email', 'roles', 'password', 'username', 'last_access','status', 'ip_address', 'user_agent', 'last_login'];
     }
 
     public function labels(): array

@@ -9,8 +9,6 @@ $this->title = 'Product details';
 
 
 ?>
-
-<article class="grid-container">
     <div class="callout">
         <h1><?= $product->name ?></h1>
     </div>
@@ -37,15 +35,6 @@ $this->title = 'Product details';
         </div>
         <div class="medium-6 large-5 cell large-offset-1">
             <p>£<?= $product->price ?> Per ticket</p>
-            <label>
-                <select>
-                    <option value="husker">BMW</option>
-                    <option value="starbuck">Audi</option>
-                    <option value="hotdog">VW</option>
-                    <option value="apollo">Dacia</option>
-                </select>
-            </label>
-
             <h3>Who Makes The M3?</h3>
             <div class="small secondary expanded button-group">
                 <a class="button">Dacia</a>
@@ -73,7 +62,7 @@ $this->title = 'Product details';
                     quantityValue.textContent = quantityInput.value;
                 });
             </script>
-            <a href="#" class="button large expanded">Buy Now</a>
+            <a href="/addToCart" class="button large expanded">Add to cart</a>
         </div>
     </div>
 
@@ -94,4 +83,3 @@ $this->title = 'Product details';
             </div>
         </div>
     </div>
-</article>

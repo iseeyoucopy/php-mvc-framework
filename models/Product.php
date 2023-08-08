@@ -76,4 +76,13 @@ class Product extends ProductModel
     {
         return $this->name . $this->description . $this->price . $this->category;
     }
+
+    // Your model logic to interact with the database
+    // For example, fetching latest products based on created_at
+    public function getLatestProducts($limit = 3)
+    {
+        // Your database query to fetch the latest products ordered by created_at
+        // Sample query: SELECT * FROM products ORDER BY created_at DESC LIMIT 3;
+        // Execute the query and return the results as an array
+    }
 }
