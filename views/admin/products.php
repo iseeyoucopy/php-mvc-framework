@@ -1,5 +1,4 @@
 <?php
-
 /** @var $this View */
 /** @var $products Product */
 
@@ -10,41 +9,36 @@ use iseeyoucopy\phpmvc\View;
 
 <h1>Product List</h1>
 
-<table>
-    <a href="/product_add" class="button">Add Product</a>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Category</th>
-        <th>Image</th>
-        <th>Added by</th>
-        <th>Action</th>
+<div class="container">
+    <div class="d-flex justify-content-end mb-3">
+        <a href="/admin/product_add" class="btn btn-primary">Add Product</a>
+    </div>
+    <div class="row">
+        <?php foreach ($products as $product): ?>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="<?= $product['image'] ?>" class="card-img-top" alt="<?= $product['name'] ?>"> <!-- Assuming you have image URLs -->
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $product['name'] ?></h5>
 
-    </tr>
-    </thead>
-    <tbody>
-    <?php
-    foreach ($products as $product): ?>
-        <tr>
-            <td><?= $product['id'] ?></td>
-            <td><a href="/admin/product/<?= $product['id'] ?>"><?= $product['name'] ?></a></td>
-            <td><p class="ellipsis-description"><?= $product['description'] ?></p></td>
-            <td><?= $product['price'] ?></td>
-            <td><?= $product['category'] ?></td>
-            <td><p class="ellipsis-description"><?= $product['image'] ?></p></td>
-            <td><?= $product['added_by'] ?></td>
-            <td>
-                <a href="/admin/product_edit/<?= $product['id'] ?>"><i class="fa fa-pencil"></i></a>
-                <form action="/admin/product_delete" method="POST" style="display:inline;">
-                    <input type="hidden" name="id" value="<?= $product['id'] ?>">
-                    <button type="submit" style="background:none;border:none;padding:0;"><i class="fa fa-trash"></i>
-                    </button>
-                </form>
-            </td>
-        </tr>
-    <?php endforeach; ?>
-    </tbody>
-</table>
+                        <!-- Description with Read More -->
+                        <p class="card-text">
+                            <span class="ellipsis-description" id="short-desc-<?= $product['id'] ?>"><?= $product['description'] ?></span>
+                            <span id="full-desc-<?= $product['id'] ?>" style="display:none;"><?= $product['description'] ?></span>
+                            <a href="#" class="read-more" data-id="<?= $product['id'] ?>">Read more</a>
+                        </p>
+
+                        <p><strong>Price:</strong> <?= $product['price'] ?></p>
+                        <p><strong>Category:</strong> <?= $product['category'] ?></p>
+                        <p><strong>Added by:</strong> <?= $product['added_by'] ?></p>
+                        <a href="/admin/product_edit/<?= $product['id'] ?>" class="btn btn-warning">Edit</a>
+                        <form action="/admin/product_delete" method="POST" style="display:inline;">
+                            <input type="hidden" name="id" value="<?= $product['id'] ?>">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>

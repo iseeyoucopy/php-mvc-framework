@@ -64,6 +64,9 @@ $app->router->post('/removeFromCart', [ProductController::class, 'removeFromCart
 $app->router->get('/admin/index', [AdminController::class, 'actionIndex']);
 
 $app->router->get('/admin/products', [AdminController::class, 'actionProducts']);
+$app->router->get('/admin/faq', [AdminController::class, 'actionFaq']);
+$app->router->get('/admin/users_list', [AdminController::class, 'userList']);
+$app->router->post('/admin/users_list', [AdminController::class, 'userList']);
 $app->router->get('/admin/product_add', [AdminController::class, 'productAdd']);
 $app->router->post('/admin/product_add', [AdminController::class, 'productAdd']);
 $app->router->get('/admin/product_edit/{id:\d+}/', [AdminController::class, 'productEdit']);

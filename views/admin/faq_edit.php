@@ -1,8 +1,10 @@
 <?php
+/** @var $this View */
 /** @var $model Faq */
 
 use iseeyoucopy\phpmvc\form\Form;
 use iseeyoucopy\phpmvc\models\Faq;
+use iseeyoucopy\phpmvc\View;
 
 
 $form = new Form();

@@ -1,5 +1,7 @@
 <?php
 /** @var $this View */
+/** @var $products Product */
+/** @var $this View */
 /** @var $cats FaqCats */
 /** @var $faqs Faq */
 /** @var $lang FaqController */
@@ -7,13 +9,19 @@
 use iseeyoucopy\phpmvc\controllers\FaqController;
 use iseeyoucopy\phpmvc\models\Faq;
 use iseeyoucopy\phpmvc\models\FaqCats;
+use iseeyoucopy\phpmvc\models\Product;
 use iseeyoucopy\phpmvc\View;
 
-$this->title = 'FAQ';
 ?>
 
 <div class="container mt-5">
     <h1 class="mb-4"><?= $lang['faq_contents_header'] ?></h1>
+
+    <!-- Add FAQ Button -->
+    <div class="mb-3">
+        <button class="btn btn-primary">Add FAQ</button>
+    </div>
+
     <div class="row">
         <!-- Sidebar with Categories -->
         <div class="col-md-4">
@@ -45,7 +53,11 @@ $this->title = 'FAQ';
                                     $item['text']
                                 ); ?>
                                 <div class="mb-4">
-                                    <h3><?= htmlspecialchars_decode($item['title']) ?></h3>
+                                    <h3><?= htmlspecialchars_decode($item['title']) ?>
+                                        <!-- Edit and Delete Buttons for each FAQ -->
+                                        <a href="/admin/faq_edit/<?= $row['id']?>" class="btn btn-sm btn-warning">Edit</a>
+                                        <a href="/admin/faq_delete/<?= $row['id']?>" class="btn btn-sm btn-danger">Delete</a>
+                                    </h3>
                                     <p><?= htmlspecialchars_decode($item['text']) ?></p>
                                 </div>
                             <?php

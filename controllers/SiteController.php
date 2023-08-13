@@ -23,7 +23,8 @@ class SiteController extends Controller
 {
     public function __construct()
     {
-        $this->registerMiddleware(new AuthMiddleware(['profile']));
+        //$this->registerMiddleware(new AuthMiddleware(['profile']));
+        $this->registerMiddleware(new AuthMiddleware(['profile'], ['admin']));
     }
 
     public function home()
@@ -52,20 +53,21 @@ class SiteController extends Controller
             'model' => $loginForm
         ]);
     }
-
     public function register(Request $request)
     {
         $registerModel = new User();
         if ($request->getMethod() === 'post') {
             $registerModel->loadData($request->getBody());
-            // Assign roles to the user
-            $registerModel->roles = ['user'];
+
+            // Set role for the user before validation and saving.
+            $role_id = $this->getDefaultUserRole();
+            $registerModel->role_id = $role_id;
+
             if ($registerModel->validate() && $registerModel->save()) {
                 Application::$app->session->setFlash('success', 'Thanks for registering');
                 Application::$app->response->redirect('/');
                 return 'Show success page';
             }
-
         }
         $this->setLayout('auth');
         return $this->render('register', [
@@ -103,5 +105,8 @@ class SiteController extends Controller
         return $this->render('faq', [
             'products' => $results
         ]);
+    }
+    public function showUserRole($role) {
+        echo "The user's role is: " . htmlspecialchars($role);
     }
 }

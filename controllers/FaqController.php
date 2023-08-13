@@ -1,14 +1,7 @@
 <?php
 namespace iseeyoucopy\phpmvc\controllers;
 
-use iseeyoucopy\phpmvc\Application;
-use iseeyoucopy\phpmvc\middlewares\AuthMiddleware;
-use iseeyoucopy\phpmvc\models\Cart;
 use iseeyoucopy\phpmvc\models\FaqCats;
-use iseeyoucopy\phpmvc\models\Product;
-use iseeyoucopy\phpmvc\Request;
-use iseeyoucopy\phpmvc\Response;
-
 use iseeyoucopy\phpmvc\Controller;
 use iseeyoucopy\phpmvc\models\Faq;
 

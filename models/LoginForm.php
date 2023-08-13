@@ -14,7 +14,8 @@ class LoginForm extends Model
 {
     public string $email = '';
     public string $password = '';
-    public array $roles = [];
+    public string $roles = '';
+
     public function rules(): array
     {
         return [
@@ -33,8 +34,7 @@ class LoginForm extends Model
 
     public function login()
     {
-        $user = User::findOneWithRoles(['email' => $this->email]);
-        //$user = User::findOne(['email' => $this->email]);
+        $user = User::findOne(['email' => $this->email]);
         if (!$user) {
             $this->addError('email', 'User does not exist with this email address');
             return false;

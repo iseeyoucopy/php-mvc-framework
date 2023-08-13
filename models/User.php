@@ -2,6 +2,7 @@
 
 namespace iseeyoucopy\phpmvc\models;
 
+use iseeyoucopy\phpmvc\Application;
 use iseeyoucopy\phpmvc\UserModel;
 
 /**
@@ -13,6 +14,7 @@ use iseeyoucopy\phpmvc\UserModel;
 class User extends UserModel
 {
     public int $id = 0;
+    public ?int $role_id;
     public string $firstname = '';
     public string $lastname = '';
     public string $email = '';
@@ -24,10 +26,12 @@ class User extends UserModel
     public string $status = '';
     public string $last_login = '';
     public string $last_access = '';
-    public array $roles = []; // Holds the roles associated with the user
+    public string $image = '';
+    public string $authtoken = '';
     public ?string $username = 'Unknown';
 
     public array $cart = [];
+
     public static function tableName(): string
     {
         return 'users';
@@ -35,7 +39,20 @@ class User extends UserModel
 
     public function attributes(): array
     {
-        return ['firstname', 'lastname', 'email', 'roles', 'password', 'username', 'last_access','status', 'ip_address', 'user_agent', 'last_login'];
+        return [
+            'firstname',
+            'lastname',
+            'email',
+            'password',
+            'image',
+            'last_access',
+            'status',
+            'authtoken',
+            'ip_address',
+            'user_agent',
+            'last_login',
+            'role_id'
+        ];
     }
 
     public function labels(): array
@@ -48,7 +65,6 @@ class User extends UserModel
             'passwordConfirm' => 'Password Confirm'
         ];
     }
-
     public function rules(): array
     {
         return [
@@ -61,40 +77,6 @@ class User extends UserModel
             'passwordConfirm' => [[self::RULE_MATCH, 'match' => 'password']],
         ];
     }
-    /**
-     * Get the user's IP address.
-     *
-     * @return string|null The user's IP address or null if not found.
-     */
-    public static function getUserIP()
-    {
-        // Check if the IP address is from a shared internet connection.
-        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-            return $_SERVER['HTTP_CLIENT_IP'];
-        }
-
-        // Check if the IP address is from a proxy.
-        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            return $_SERVER['HTTP_X_FORWARDED_FOR'];
-        }
-
-        // Check if the IP address is from the remote address.
-        if (!empty($_SERVER['REMOTE_ADDR'])) {
-            return $_SERVER['REMOTE_ADDR'];
-        }
-
-        return null;
-    }
-
-    /**
-     * Get the user's user agent string.
-     *
-     * @return string|null The user's user agent string or null if not found.
-     */
-    public static function getUserAgent()
-    {
-        return $_SERVER['HTTP_USER_AGENT'] ?? null;
-    }
 
     public function save()
     {
@@ -102,7 +84,7 @@ class User extends UserModel
         $this->last_access = date('Y-m-d H:i:s');
         // Login successful, update IP address and user agent, and save the user
         $this->ip_address = self::getUserIP();
-        $this->user_agent = self::getUserAgent();;
+        $this->user_agent = self::getUserAgent();
         return parent::save();
     }
 
@@ -154,4 +136,12 @@ class User extends UserModel
             }
         }
     }
+    private function getDefaultUserRole()
+    {
+        $db = Application::$app->db;
+        $statement = $db->prepare("SELECT id FROM roles WHERE name = 'User'");
+        $statement->execute();
+        return $statement->fetchColumn();  // Fetch the role_id for "User"
+    }
+
 }
