@@ -2,8 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/php-mvc-core" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/public/designs/html_templates/edu-meeting" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/public/designs/html_templates/orthoc" vcs="Git" />
   </component>
 </project>
