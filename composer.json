@@ -14,6 +14,7 @@
   },
   "require": {
     "vlucas/phpdotenv": "^v5.5.0",
-    "iseeyoucopy/php-mvc-core": "^1.0.5"
+    "iseeyoucopy/php-mvc-core": "^1.0.5",
+    "phpmailer/phpmailer": "^6.8"
   }
 }
