@@ -35,6 +35,7 @@ class LoginForm extends Model
     public function login()
     {
         $user = User::findOne(['email' => $this->email]);
+
         if (!$user) {
             $this->addError('email', 'User does not exist with this email address');
             return false;
@@ -43,13 +44,6 @@ class LoginForm extends Model
             $this->addError('password', 'Password is incorrect');
             return false;
         }
-
-        // Set user's IP address and HTTP agent
-        //$user->ip_address = User::getUserIP();
-        //$user->user_agent = User::getUserAgent();
-
-        // Set last access date
-        //$user->last_login = date('Y-m-d H:i:s');
 
         // Save user data to the database
         $user->update();

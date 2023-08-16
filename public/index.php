@@ -7,12 +7,9 @@ use Dotenv\Dotenv;
 use iseeyoucopy\phpmvc\Application;
 use iseeyoucopy\phpmvc\controllers\AboutController;
 use iseeyoucopy\phpmvc\controllers\AdminController;
-use iseeyoucopy\phpmvc\controllers\AdminProductController;
-use iseeyoucopy\phpmvc\controllers\CartController;
 use iseeyoucopy\phpmvc\controllers\FaqController;
 use iseeyoucopy\phpmvc\controllers\ProductController;
 use iseeyoucopy\phpmvc\controllers\SiteController;
-use iseeyoucopy\phpmvc\middlewares\AuthMiddleware;
 use iseeyoucopy\phpmvc\models\User;
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -24,7 +21,9 @@ $config = [
         'dsn' => $_ENV['DB_DSN'],
         'user' => $_ENV['DB_USER'],
         'password' => $_ENV['DB_PASSWORD'],
-    ]
+    ],
+    // ... other configuration parameters ...
+    'tokenName' => 'IseeYouCopy' // your custom name here
 ];
 
 $app = new Application(dirname(__DIR__), $config);

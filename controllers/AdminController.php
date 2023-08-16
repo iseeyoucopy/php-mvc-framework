@@ -18,9 +18,7 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->registerMiddleware(new AuthMiddleware(['actionIndex', 'actionProducts'], ['admin', 'moderator']));
-        //$this->registerMiddleware(new AuthMiddleware(['admin', 'moderator']));
-        //$this->registerMiddleware(new AuthMiddleware(['admin']));
+        $this->registerMiddleware(new AuthMiddleware(['actionIndex', 'actionProducts'], [User::ROLE_ADMIN]));
 
     }
 

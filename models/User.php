@@ -31,6 +31,9 @@ class User extends UserModel
     public ?string $username = 'Unknown';
 
     public array $cart = [];
+    const ROLE_USER = 'user';
+    const ROLE_ADMIN = 'admin';
+
 
     public static function tableName(): string
     {
@@ -80,6 +83,9 @@ class User extends UserModel
 
     public function save()
     {
+        if ($this->role_id === null) {
+            $this->role_id = $this->getDefaultUserRole();
+        }
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
         $this->last_access = date('Y-m-d H:i:s');
         // Login successful, update IP address and user agent, and save the user
@@ -107,41 +113,21 @@ class User extends UserModel
     {
         return htmlspecialchars($this->email);
     }
-
-// User.php
-
-// ... Your existing code ...
-
-    public function addToCart($product_id)
-    {
-        // Check if the product already exists in the cart
-        if (isset($this->cart[$product_id])) {
-            // If it exists, increment the quantity
-            $this->cart[$product_id]++;
-        } else {
-            // If it doesn't exist, add it to the cart with quantity 1
-            $this->cart[$product_id] = 1;
-        }
-    }
-
-    public function removeFromCart($product_id)
-    {
-        // Check if the product exists in the cart
-        if (isset($this->cart[$product_id])) {
-            // If it exists, decrement the quantity
-            $this->cart[$product_id]--;
-            // If the quantity becomes zero, remove the product from the cart
-            if ($this->cart[$product_id] <= 0) {
-                unset($this->cart[$product_id]);
-            }
-        }
-    }
-    private function getDefaultUserRole()
+    public static function getDefaultUserRole()
     {
         $db = Application::$app->db;
-        $statement = $db->prepare("SELECT id FROM roles WHERE name = 'User'");
+        $statement = $db->prepare("SELECT id FROM roles WHERE role_name = 'user'");
         $statement->execute();
-        return $statement->fetchColumn();  // Fetch the role_id for "User"
+        return $statement->fetchColumn();  // Fetch the role_id for "user"
     }
 
+    public function getRole(): string {
+        // Fetch the role name from the database using the role_id.
+        $db = Application::$app->db;
+        $statement = $db->prepare("SELECT role_name FROM roles WHERE id = :role_id");
+        $statement->bindValue(':role_id', $this->role_id);
+        $statement->execute();
+
+        return $statement->fetchColumn() ?: 'user'; // Return 'user' as default role if none is found.
+    }
 }

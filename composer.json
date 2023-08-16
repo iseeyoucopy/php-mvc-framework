@@ -13,7 +13,7 @@
     }
   },
   "require": {
-    "vlucas/phpdotenv": "^5.0",
-    "iseeyoucopy/php-mvc-core": "^1.0.4"
+    "vlucas/phpdotenv": "^v5.5.0",
+    "iseeyoucopy/php-mvc-core": "^1.0.5"
   }
 }

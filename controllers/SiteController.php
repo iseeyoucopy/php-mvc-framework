@@ -24,7 +24,7 @@ class SiteController extends Controller
     public function __construct()
     {
         //$this->registerMiddleware(new AuthMiddleware(['profile']));
-        $this->registerMiddleware(new AuthMiddleware(['profile'], ['admin']));
+        $this->registerMiddleware(new AuthMiddleware(['profile']));
     }
 
     public function home()
@@ -58,9 +58,9 @@ class SiteController extends Controller
         $registerModel = new User();
         if ($request->getMethod() === 'post') {
             $registerModel->loadData($request->getBody());
-
+            
             // Set role for the user before validation and saving.
-            $role_id = $this->getDefaultUserRole();
+            $role_id = User::getDefaultUserRole(); // Access the static method directly from the User class
             $registerModel->role_id = $role_id;
 
             if ($registerModel->validate() && $registerModel->save()) {
