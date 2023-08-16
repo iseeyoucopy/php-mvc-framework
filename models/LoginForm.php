@@ -14,7 +14,6 @@ class LoginForm extends Model
 {
     public string $email = '';
     public string $password = '';
-    public string $roles = '';
 
     public function rules(): array
     {
