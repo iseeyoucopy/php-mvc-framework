@@ -39,7 +39,10 @@ $app->router->get('/login', [SiteController::class, 'login']);
 $app->router->get('/login/{id}', [SiteController::class, 'login']);
 $app->router->post('/login', [SiteController::class, 'login']);
 $app->router->get('/logout', [SiteController::class, 'logout']);
+
 $app->router->get('/contact', [SiteController::class, 'contact']);
+$app->router->post('/contact', [SiteController::class, 'contact']);
+
 $app->router->get('/about', [AboutController::class, 'index']);
 $app->router->get('/profile', [SiteController::class, 'profile']);
 
@@ -64,6 +67,7 @@ $app->router->get('/admin/index', [AdminController::class, 'actionIndex']);
 
 $app->router->get('/admin/products', [AdminController::class, 'actionProducts']);
 $app->router->get('/admin/faq', [AdminController::class, 'actionFaq']);
+$app->router->get('/admin/submissions', [AdminController::class, 'showSubmissions']);
 $app->router->get('/admin/users_list', [AdminController::class, 'userList']);
 $app->router->post('/admin/users_list', [AdminController::class, 'userList']);
 $app->router->get('/admin/product_add', [AdminController::class, 'productAdd']);

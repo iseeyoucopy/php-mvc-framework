@@ -7,6 +7,8 @@ use iseeyoucopy\phpmvc\Application;
 use iseeyoucopy\phpmvc\Controller;
 use iseeyoucopy\phpmvc\middlewares\AuthMiddleware;
 use iseeyoucopy\phpmvc\models\Cart;
+use iseeyoucopy\phpmvc\models\ContactForm;
+use iseeyoucopy\phpmvc\models\Faq;
 use iseeyoucopy\phpmvc\models\LoginForm;
 use iseeyoucopy\phpmvc\models\Product;
 use iseeyoucopy\phpmvc\models\User;
@@ -80,10 +82,20 @@ class SiteController extends Controller
         Application::$app->logout();
         $response->redirect('/');
     }
-
     public function contact()
     {
-        return $this->render('contact');
+        $contact = new ContactForm();
+        if (Application::$app->request->isPost()) {
+            $contact->loadData(Application::$app->request->getBody());
+            if ($contact->validate() && $contact->save()) {
+                Application::$app->session->setFlash('success', 'Thanks for contacting us.');
+                Application::$app->response->redirect('/contact');
+                exit;
+            }
+        }
+        return $this->render('contact', [
+            'model' => $contact
+        ]);
     }
 
     public function profile()
@@ -103,7 +115,7 @@ class SiteController extends Controller
         // Now, $results contains all the product records from the database
         // You pass it to the view
         return $this->render('faq', [
-            'products' => $results
+            'faqs' => $results
         ]);
     }
     public function showUserRole($role) {

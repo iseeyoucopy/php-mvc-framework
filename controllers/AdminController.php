@@ -7,6 +7,7 @@ namespace iseeyoucopy\phpmvc\controllers;
 use iseeyoucopy\phpmvc\Application;
 use iseeyoucopy\phpmvc\Controller;
 use iseeyoucopy\phpmvc\middlewares\AuthMiddleware;
+use iseeyoucopy\phpmvc\models\ContactForm;
 use iseeyoucopy\phpmvc\models\Faq;
 use iseeyoucopy\phpmvc\models\FaqCats;
 use iseeyoucopy\phpmvc\models\Product;
@@ -60,6 +61,13 @@ class AdminController extends Controller
             ],
         ]);
 
+    }
+
+    public function showSubmissions()
+    {
+        $this->setLayout('admin_template');
+        $submissions = (new ContactForm())->findAll();
+        return $this->renderAdmin('submissions', ['submissions' => $submissions]);
     }
 
     public function productAdd(Request $request): string

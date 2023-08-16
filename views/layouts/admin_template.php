@@ -40,7 +40,7 @@
         <div class="col-md-3">
             <div class="list-group">
                 <a href="/admin/dashboard" class="list-group-item list-group-item-action active">Dashboard</a>
-                <a href="/admin/orders" class="list-group-item list-group-item-action">Orders</a>
+                <a href="/admin/submissions" class="list-group-item list-group-item-action">Submissions</a>
                 <a href="/admin/products" class="list-group-item list-group-item-action">Products</a>
                 <a href="/admin/customers" class="list-group-item list-group-item-action">Customers</a>
                 <a href="/admin/faq" class="list-group-item list-group-item-action">Faq</a>
