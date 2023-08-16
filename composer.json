@@ -6,6 +6,7 @@
       "email": "iseeyoucopy@yahoo.com"
     }
   ],
+  "license": "MIT",
   "autoload": {
     "psr-4": {
       "iseeyoucopy\\phpmvc\\": "."
@@ -13,6 +14,6 @@
   },
   "require": {
     "vlucas/phpdotenv": "^5.0",
-    "iseeyoucopy/php-mvc-core": "^1.0.3"
+    "iseeyoucopy/php-mvc-core": "^1.0.4"
   }
 }
